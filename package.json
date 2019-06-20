@@ -20,11 +20,13 @@
   },
   "homepage": "https://github.com/shanreed/webauth-iii-challenge#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "knex": "^0.17.6",
     "sqlite3": "^4.0.9"
   },
   "devDependencies": {
+    "knex-cleaner": "^1.1.4",
     "nodemon": "^1.19.1"
   }
 }
