@@ -1,13 +1,12 @@
 const express = require("express");
 
-
-const db = require("../../database/dbConfig");
 const Users = require("./users-model");
 const restricted = require('../auth/restricted-middleware');
+const checkRole = require('../auth/check-role-middleware');
 
 const router = express.Router();
 
-router.get("/", restricted, (req, res) => {
+router.get("/", restricted, checkRole('Student'), (req, res) => {
   Users.find()
     .then(users => {
       res.json(users);
