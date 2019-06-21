@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 
-class Login extends React.Component {
+class Signin extends React.Component {
   state = {
-    username: '',
-    password: ''
+    username: 'Keith',
+    password: 'keithpassword'
   };
 
   handleChange = e => {
@@ -17,9 +17,8 @@ class Login extends React.Component {
     e.preventDefault();
 
     axios
-      .post('/auth/login', this.state)
+      .post('/auth/signin', this.state)
       .then(res => {
-        console.log(res.data);
         localStorage.setItem('token', res.data.token);
         this.props.history.push('/users');
       })
@@ -31,7 +30,7 @@ class Login extends React.Component {
   render() {
     return (
       <>
-        <h1>Login</h1>
+        <h1>SIGN IN</h1>
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="username">Username</label>
@@ -54,7 +53,7 @@ class Login extends React.Component {
             />
           </div>
           <div>
-            <button type="submit">Log in</button>
+            <button type="submit">SIGN IN</button>
           </div>
         </form>
       </>
@@ -62,4 +61,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default Signin;
